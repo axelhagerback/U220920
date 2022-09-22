@@ -38,3 +38,16 @@ function submitInformation() {
 function hideShowList() {
      customerList.hidden = !customerList.hidden;
 };
+
+function search() {
+   var inputID = document.getElementById('searchInput').value;
+   var outputID = document.getElementById('searchOutput');
+
+   findEmail = (person => {
+        return person.Email === inputID;
+   });
+
+   outputID.innerHTML = (`Name: ${customers.find(findEmail).Name} | Contactnumber: ${customers.find(findEmail).PhoneNumber} | `+
+   `Email: ${customers.find(findEmail).Email} | Address: ${customers.find(findEmail).Address} | Postal Code: ${customers.find(findEmail).PostalCode}`);
+
+}
