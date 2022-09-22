@@ -23,7 +23,8 @@ function submitInformation() {
 
     customers.forEach(person => {
         const listAttribute = document.createElement('li');
-        listAttribute.innerHTML = (`Customer name: ${person.Name} | Customer contactnumber: ${person.PhoneNumber} | Customer email: ${person.Email}`);
+        listAttribute.innerHTML = (`Customer name: ${person.Name} | Customer contactnumber: ${person.PhoneNumber}`+
+        ` | Customer email: <a href=mailto:${person.Email}>${person.Email}</a>`);
         customerList.appendChild(listAttribute);
     });
 
