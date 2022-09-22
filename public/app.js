@@ -18,9 +18,22 @@ function submitInformation() {
     person = {Name: name, PhoneNumber: phoneNumber, Email: email, Address: address, PostalCode: postalCode};
     customers.push(person);
 
+    var emptyCustomerList = document.getElementById('customerList');
+    emptyCustomerList.innerHTML = ''; 
+
+    customers.forEach(person => {
+        const listAttribute = document.createElement('li');
+        listAttribute.innerHTML = (`Customer name: ${person.Name} | Customer contactnumber: ${person.PhoneNumber} | Customer email: ${person.Email}`);
+        customerList.appendChild(listAttribute);
+    });
+
     document.getElementById('inputName').value = '';
     document.getElementById('inputPhoneNumber').value = '';
     document.getElementById('inputEmail').value = '';
     document.getElementById('inputAddress').value = '';
     document.getElementById('inputPostalCode').value = '';
+};
+
+function hideShowList() {
+     customerList.hidden = !customerList.hidden;
 };
